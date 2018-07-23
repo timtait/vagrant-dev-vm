@@ -1,0 +1,5 @@
+- name: Install required base packages
+  yum: name={{ item }} state=present
+  with_items:
+    - curl
+    - git

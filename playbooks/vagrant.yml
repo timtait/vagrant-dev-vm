@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: true
+  vars:
+    document_root: /vagrant
+    www_user: vagrant
+    www_group: vagrant
+  pre_tasks:
+    - name: Add epel repo
+      yum_repository:
+        name: epel
+        description: EPEL YUM repo
+        baseurl: http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    - name: Add remi repo
+      yum_repository:
+        name: remi
+        description: REMI YUM repo
+        baseurl: http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+  roles:
+    - base
+    - nginx
+    - mysql
+    - rabbitmq
+    - redis

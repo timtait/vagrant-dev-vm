@@ -1,0 +1,5 @@
+---
+- name: install rabbitmq server 3.1.5
+  yum:
+    name: http://dl.fedoraproject.org/pub/epel/6/i386/Packages/r/rabbitmq-server-3.1.5-1.el6.noarch.rpm
+    state: present
